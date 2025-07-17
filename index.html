@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/placeholder.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Search & Measurement Tool</title>
+    <meta name="description" content="Search properties, add pins, and measure areas with our interactive mapping tool" />
+    
+    <!-- Preconnect to Google APIs for better performance -->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+    
+    <!-- Google Maps API - Replace YOUR_API_KEY with actual key -->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry,places&loading=async"
+      onerror="console.warn('Google Maps failed to load - using fallback map')"
+    ></script>
+    
+    <!-- Fallback for when Google Maps fails -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (!window.google || !window.google.maps) {
+            console.warn('Google Maps not available - application will use mock map');
+          }
+        }, 3000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
